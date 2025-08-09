@@ -36,7 +36,7 @@ export async function POST(req: Request) {
     const model = aiClient.getGenerativeModel({ model: modelName });
 
     // Optional: save history if signed-in
-    const session = (await getServerSession(authOptions as any)) as any;
+    const session = await getServerSession(authOptions);
     const client = await clientPromise;
     const db = client.db();
 
